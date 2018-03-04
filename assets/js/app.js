@@ -25,14 +25,14 @@ function init() {
         success: function (data) {
 
             var menu = menuBuilder(data.menu);
-            
+
             $('nav').append(menu);
-            
+
         },
         error: function () {
-            
+
             console.log('all is not good');
-            
+
         }
     });
 
@@ -52,13 +52,13 @@ function menuBuilder(obj) {
             theMenu = theMenu + '<li><a href="#">' + item.MenuName + '</a>';
 
             if (item.Menus.length > 0) {
-                
+
                 theMenu = theMenu + menuBuilder(item.Menus);
-            
+
             }
-            
+
             theMenu = theMenu + '</li>';
-            
+
         });
 
         theMenu = theMenu + '</ul>';
@@ -68,6 +68,6 @@ function menuBuilder(obj) {
         console.log('no data');
 
     }
-    
+
     return theMenu;
 }
